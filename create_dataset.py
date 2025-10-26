@@ -7,6 +7,7 @@ df_vf = pd.concat([
     for year in years
 ], ignore_index=True)
 
+
 # Filtrer Île-de-France
 departements_idf = ['75', '77', '78', '91', '92', '93', '94', '95']
 df_vf_idf = df_vf[df_vf['Code departement'].isin(departements_idf)].copy()
