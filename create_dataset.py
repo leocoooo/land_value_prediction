@@ -108,3 +108,5 @@ print("\nPrix médians calculés pour {prix_median_quartier_trimestre.shape[0]} 
 print("\nAperçu des colonnes créées :")
 print(df_vf_idf[['Date mutation', 'quartier_detaille', 'annee_trimestre', 'prix_m2', 'prix_median_m2', 'ecart_prix_median_pct']].head(10))
 print(df_vf_idf)
+
+df_vf_idf.to_csv("data/df_vf_idf.csv", index=False)
