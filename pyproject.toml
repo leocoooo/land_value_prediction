@@ -11,6 +11,7 @@ dependencies = [
     "kaleido>=1.1.0",
     "lightgbm>=4.6.0",
     "matplotlib>=3.10.7",
+    "notebook>=7.4.7",
     "numpy>=2.3.4",
     "pandas==2.3.2",
     "plotext>=5.3.2",
