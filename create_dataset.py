@@ -1,9 +1,9 @@
 import pandas as pd
 
 # Charger et concaténer
-years = ['2020-S2', '2021', '2022', '2023', '2024', '2025-S1']
+years = ['2020', '2021', '2022', '2023', '2024', '2025']
 df_vf = pd.concat([
-    pd.read_csv(f"data/ValeursFoncieres-{year}.txt", sep="|", low_memory=False)
+    pd.read_csv(f"data/final_data/DVF_{year}.csv", sep=",", low_memory=False)
     for year in years
 ], ignore_index=True)
 
