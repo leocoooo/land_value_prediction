@@ -107,3 +107,4 @@ print("\nAperçu des colonnes créées :")
 print(df_vf_idf_filtered[['date_mutation', 'quartier_detaille', 'annee_trimestre', 'prix_m2', 'prix_median_m2', 'ecart_prix_median_pct']].head(10))
 
 df_vf_idf_filtered.to_csv("data/df_vf_idf.csv", index=False)
+
