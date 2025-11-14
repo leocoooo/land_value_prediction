@@ -9,6 +9,7 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "analyzer>=0.1.1",
+    "category-encoders>=2.9.0",
     "kaleido>=1.1.0",
     "lightgbm>=4.6.0",
     "matplotlib>=3.10.7",
@@ -21,7 +22,7 @@ dependencies = [
     "scikit-learn>=1.7.2",
     "seaborn>=0.13.2",
     "statsmodels>=0.14.5",
-    "xgboost>=2.0.0",
+    "xgboost==1.7.6",
 ]
 
 [project.scripts]
