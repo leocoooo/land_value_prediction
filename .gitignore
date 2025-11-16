@@ -9,4 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
-data/
+# Garder le fichier data pour voir l'arbitecture des dossiers mais les fichiers dedans sont ignorés
+*.csv
+*.pickle
+*.parquet 
+*.xlsx 
