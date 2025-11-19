@@ -179,14 +179,14 @@ def visualiser_correlations_cible(corr_df: pd.DataFrame) -> None:
     plt.show()
 
 
-def visualiser_matrice_correlation(X: pd.DataFrame, y: pd.Series, colonnes: List[str]) -> None:
+def visualiser_matrice_correlation(X: pd.DataFrame, y: pd.Series, colonnes: List[str], annot : bool = True) -> None:
     train_with_target = X[colonnes].copy()
     train_with_target['prix_m2'] = y
     
     corr_matrix = train_with_target.corr()
     
     plt.figure(figsize=(14, 12))
-    sns.heatmap(corr_matrix, annot=True, fmt='.2f', cmap='coolwarm',
+    sns.heatmap(corr_matrix, annot=annot, fmt='.2f', cmap='coolwarm',
                 center=0, square=True, linewidths=1, cbar_kws={"shrink": 0.8})
     plt.title('Matrice de corrélation complète (variables numériques)', fontsize=16, fontweight='bold')
     plt.tight_layout()
