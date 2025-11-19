@@ -11,6 +11,7 @@ dependencies = [
     "analyzer>=0.1.1",
     "category-encoders>=2.9.0",
     "fastparquet>=2024.11.0",
+    "geopandas>=1.1.1",
     "kaleido>=1.1.0",
     "lightgbm>=4.6.0",
     "matplotlib>=3.10.7",
@@ -22,7 +23,9 @@ dependencies = [
     "plotly>=6.3.1",
     "prophet>=1.2.1",
     "scikit-learn>=1.7.2",
+    "scipy>=1.16.2",
     "seaborn>=0.13.2",
+    "shapely>=2.1.2",
     "statsmodels>=0.14.5",
     "xgboost==1.7.6",
 ]
