@@ -260,7 +260,6 @@ def traiter_dataset_complet(
     print("="*70)
     
     # Extraire l'année
-    df['annee'] = pd.to_datetime(df['date_mutation']).dt.year
     annees = sorted(df['annee'].unique())
     
     print(f"\nAnnées détectées: {annees}")
@@ -301,7 +300,6 @@ def traiter_dataset_complet(
     
     # Combiner tous les résultats
     df_final = pd.concat(results).sort_index()
-    df_final = df_final.drop(columns=['annee'], errors='ignore')
     
     print("\n" + "="*70)
     print("PIPELINE TERMINÉ !")
