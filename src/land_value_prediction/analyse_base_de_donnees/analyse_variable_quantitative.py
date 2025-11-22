@@ -229,6 +229,29 @@ def main() -> None:
     visualiser_matrice_correlation(X_train, y_train, types_vars['numeriques'])
     
 
+def zscore_outlier_rate(df, threshold=3):
+    """
+    Calcule le taux de valeurs aberrantes (outliers) pour chaque variable numérique
+    selon le critère du z-score (> threshold ou < -threshold).
+    Retourne un DataFrame avec le taux d'outliers par variable et les seuils min/max.
+    """
+    numeric_cols = df.select_dtypes(include=np.number).columns
+    outlier_stats = {}
+    for col in numeric_cols:
+        mean = df[col].mean()
+        std = df[col].std(ddof=0)
+        col_zscore = (df[col] - mean) / std
+        outlier_mask = col_zscore.abs() > threshold
+        outlier_rate = outlier_mask.mean() * 100  # en pourcentage
+        lower_bound = mean - threshold * std
+        upper_bound = mean + threshold * std
+        outlier_stats[col] = {
+            'outlier_rate_%': outlier_rate,
+            'outlier_min': lower_bound,
+            'outlier_max': upper_bound
+        }
+    return pd.DataFrame.from_dict(outlier_stats, orient='index').sort_values('outlier_rate_%', ascending=False)
+
 
 if __name__ == "__main__":
     main()
