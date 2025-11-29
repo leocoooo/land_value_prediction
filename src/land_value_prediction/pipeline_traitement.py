@@ -22,7 +22,6 @@ def do_feature_engineering(df):
     ).replace([np.inf, -np.inf], 0).fillna(0)
     
     # Log des surfaces (relations non-linéaires)
-    df_feat['log_surface_bati'] = np.log1p(df_feat['surface_reelle_bati'])
     df_feat['log_surface_terrain'] = np.log1p(df_feat['surface_terrain'])
     
     # Densité (nombre de lots peut indiquer copropriété)
