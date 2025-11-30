@@ -1,43 +1,47 @@
-# Land Value Prediction Project
 
-This project aims to predict land and property values in the Île-de-France region using a variety of data sources and machine learning techniques. The workflow is organized around several Jupyter notebooks, each handling a specific step in the data science pipeline.
+# Prédiction de la valeur foncière en Île-de-France
 
-## Notebooks Overview
+Ce projet vise à prédire la valeur des terrains et biens immobiliers en Île-de-France à partir de multiples sources de données et de techniques avancées de machine learning. Le flux de travail est structuré autour de plusieurs notebooks Jupyter, chacun dédié à une étape clé du pipeline de data science.
 
-### 00_create_dataset.ipynb
-Imports and merges multiple data tables to create a comprehensive dataset with as many features as possible to help predict the price per square meter of properties. Includes data cleaning and merging operations.
+## Présentation des notebooks
 
-### 01_train_test_split.ipynb
-Splits the dataset into training and test sets, with preliminary analysis to avoid data leakage. Ensures proper separation for model validation.
+**00_create_dataset.ipynb**
+> Ce notebook importe et fusionne plusieurs tables de données afin de construire un dataset riche en variables pour la prédiction du prix au mètre carré en Île-de-France.
 
-### 02_analyze_process_clean_data.ipynb
-Performs exploratory data analysis and cleaning on the dataset. Visualizes distributions, checks for missing values, and processes features to prepare for modeling.
+**01_train_test_split.ipynb**
+> Ce notebook sépare les données en ensembles d'entraînement et de test tout en contrôlant le risque de data leakage.
 
-### 03_selection_features.ipynb
-Selects relevant features for modeling using statistical and machine learning techniques (e.g., SHAP values, correlation analysis). Reduces dimensionality and improves model performance.
+**02_analyze_process_clean_data.ipynb**
+> Ce notebook analyse les distributions et corrélations des variables, traite les valeurs manquantes par imputation géographique, et applique des transformations de feature engineering avant d'exporter les données nettoyées.
 
-### 04_modelisation_RF_XG_theo.ipynb
-Trains and evaluates Random Forest and XGBoost models on the selected features. Includes cross-validation and performance metrics.
+**03_selection_features.ipynb**
+> Ce notebook sélectionne les variables les plus pertinentes en utilisant les valeurs SHAP issues d'un modèle LightGBM entraîné par validation croisée stratifiée, puis élimine les features fortement corrélées.
 
-### 04_modelisation_XGB_RF_Stacking_LigthGBM.ipynb
-Implements advanced modeling techniques, including stacking and LightGBM, alongside XGBoost and Random Forest. Compares ensemble methods for improved prediction accuracy.
+**04_modelisation_RF_XG_theo.ipynb**
+> Ce notebook optimise les hyperparamètres de Random Forest et XGBoost via Optuna sur un échantillon stratifié de 50 000 lignes pour la rapidité tandis que l'entraînement final (fit) se fait sur l'intégralité du dataset train pour la performance maximale. On compare ensuite les 2 modèles à partir de 3 jeux de données : train, test et oos.
 
-### 04_multiple_models.ipynb
-Explores and compares multiple machine learning models for land value prediction. Includes model training, evaluation, and comparison of results.
+**04_modelisation_RF_XG.ipynb**
+> Ce notebook entraîne 2 modèles : un Random Forest et un XGBoost. Pour la recherche d’hyperparamètres on utilise Optuna sur un échantillon stratifié de 50 000 lignes pour la rapidité tandis que l'entraînement final (fit) se fait sur l'intégralité du dataset train pour la performance maximale. On compare ensuite les 2 modèles à partir de 3 jeux de données : train, test et oos.
 
-### 04_ridge_regression.ipynb
-Applies Ridge Regression to the dataset, including hyperparameter tuning and evaluation. Compares linear model performance to ensemble methods.
+**04_modelisation_XGB_RF_Stacking_LigthGBM.ipynb**
+> Ce notebook entraîne et compare les performances de XGBoost, Random Forest, LightGBM et un modèle de stacking sur les ensembles train, test et out-of-sample, avec possibilité d'exclure Paris.
 
-## Data Structure
-- **data/raw/**: Contains original data files from various sources.
-- **data/processed/**: Contains cleaned and processed datasets ready for analysis and modeling.
-- **src/**: Source code for data processing, feature engineering, and modeling.
-- **notebooks/**: Jupyter notebooks for each step of the workflow.
+**04_multiple_models.ipynb**
+> Ce notebook optimise séparément des modèles XGBoost pour Paris et hors Paris via Optuna, évalue leurs performances par zone géographique, et compare les résultats à un modèle naïf basé sur la médiane.
 
-## Getting Started
-1. Clone the repository.
-2. Install required dependencies (see `pyproject.toml`).
-3. Run the notebooks in order for a complete workflow from raw data to model evaluation.
+**04_ridge_regression.ipynb**
+> Ce notebook teste deux stratégies de sélection de variables pour une régression Ridge en supprimant les features fortement corrélées, optimise les hyperparamètres par validation croisée, et analyse l'interprétabilité des coefficients.
+
+## Structure des données
+- **data/raw/** : Données brutes issues de différentes sources.
+- **data/processed/** : Données nettoyées et prêtes pour l'analyse et la modélisation.
+- **src/** : Code source pour le traitement, l'ingénierie des features et la modélisation.
+- **notebooks/** : Notebooks Jupyter pour chaque étape du workflow.
+
+## Pour commencer
+1. Clonez le dépôt.
+2. Installez les dépendances nécessaires (voir `pyproject.toml`).
+3. Exécutez les notebooks dans l'ordre pour suivre le workflow complet, de la donnée brute à l'évaluation des modèles.
 
 ## Documentation
-Additional documentation is available in the `doc/` folder, describing variable dictionaries and data sources.
+Des documents complémentaires sont disponibles dans le dossier `doc/`, incluant des dictionnaires de variables et la description des sources de données.
