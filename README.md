@@ -32,6 +32,11 @@ Ce projet vise à prédire la valeur des terrains et biens immobiliers en Île-d
 **04_ridge_regression.ipynb**
 > Ce notebook teste deux stratégies de sélection de variables pour une régression Ridge en supprimant les features fortement corrélées, optimise les hyperparamètres par validation croisée, et analyse l'interprétabilité des coefficients.
 
+
+## Tableau récapitulatif des performances de chaque approche de modélisation
+[à venir]
+
+
 ## Structure des données
 - **data/raw/** : Données brutes issues de différentes sources.
 - **data/processed/** : Données nettoyées et prêtes pour l'analyse et la modélisation.
