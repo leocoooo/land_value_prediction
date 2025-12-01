@@ -34,7 +34,7 @@ Ce projet vise à prédire la valeur des terrains et biens immobiliers en Île-d
 
 
 ## Tableau récapitulatif des performances de chaque approche de modélisation
-![texte alternatif](./data_valeurs_foncieres/doc/resultats.png)
+![texte alternatif](/data_valeurs_foncieres/doc/resultats.png)
 
 
 ## Structure des données
