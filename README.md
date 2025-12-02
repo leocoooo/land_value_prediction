@@ -35,7 +35,7 @@ Ce projet vise à prédire la valeur des terrains et biens immobiliers en Île-d
 
 ## Tableau récapitulatif des performances de chaque approche de modélisation
 <p align="center">
-  <img src="doc/resultats_ML.png" width="900">
+  <img src="doc/results_ML.png" width="900">
 </p>
 
 ## Structure des données
